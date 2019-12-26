@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui"
+    />
+    <title>【读书笔记】byte的取值范围为什么是-128~127？ | liujiaozhu</title>
+    <meta name="description" content="只要思想不滑坡,办法总比困难多。" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="【读书笔记】byte的取值范围为什么是-128~127？ | liujiaozhu" />
+    <meta property="og:site_name" content="【读书笔记】byte的取值范围为什么是-128~127？ | liujiaozhu" />
+    <meta property="og:locale" content="zh-CN" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="【读书笔记】byte的取值范围为什么是-128~127？ | liujiaozhu" />
+    <link rel="shortcut icon" href="/liujiaozhu.png">
+    
+    <link rel="preload" href="/assets/css/0.styles.4c862405.css" as="style"><link rel="preload" href="/assets/js/app.47c78c4b.js" as="script"><link rel="preload" href="/assets/js/1.301c5c70.js" as="script"><link rel="preload" href="/assets/js/14.8638e8d8.js" as="script"><link rel="preload" href="/assets/js/5.68c0f73b.js" as="script"><link rel="preload" href="/assets/js/7.b1d1a3c7.js" as="script"><link rel="preload" href="/assets/js/9.c16d6f98.js" as="script"><link rel="preload" href="/assets/js/6.cf863b70.js" as="script"><link rel="preload" href="/assets/js/28.07c1119f.js" as="script"><link rel="preload" href="/assets/js/13.61227677.js" as="script"><link rel="preload" href="/assets/js/15.1a7d8497.js" as="script"><link rel="prefetch" href="/assets/js/10.82ed8db1.js"><link rel="prefetch" href="/assets/js/11.c6cc3f5a.js"><link rel="prefetch" href="/assets/js/12.e8232952.js"><link rel="prefetch" href="/assets/js/16.7a9277a4.js"><link rel="prefetch" href="/assets/js/17.fd987f83.js"><link rel="prefetch" href="/assets/js/18.af203059.js"><link rel="prefetch" href="/assets/js/19.4450b618.js"><link rel="prefetch" href="/assets/js/20.bae3f6fa.js"><link rel="prefetch" href="/assets/js/21.b334e4ae.js"><link rel="prefetch" href="/assets/js/22.2b78aaa6.js"><link rel="prefetch" href="/assets/js/23.2f6f2936.js"><link rel="prefetch" href="/assets/js/24.c074b716.js"><link rel="prefetch" href="/assets/js/25.b272ac2b.js"><link rel="prefetch" href="/assets/js/26.a1847ac8.js"><link rel="prefetch" href="/assets/js/27.baaed4cf.js"><link rel="prefetch" href="/assets/js/29.dc8ff5e5.js"><link rel="prefetch" href="/assets/js/30.d50e296a.js"><link rel="prefetch" href="/assets/js/31.17dd58ea.js"><link rel="prefetch" href="/assets/js/32.d932ee4e.js"><link rel="prefetch" href="/assets/js/33.a57620ef.js"><link rel="prefetch" href="/assets/js/34.6566bb7d.js"><link rel="prefetch" href="/assets/js/35.fd175adf.js"><link rel="prefetch" href="/assets/js/4.61eb1fcd.js"><link rel="prefetch" href="/assets/js/8.eb0a6131.js"><link rel="prefetch" href="/assets/js/vendors~search.a37f60bd.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.4c862405.css">
+  </head>
+  <body>
+    <div id="loader-wrapper" style="display: none;opacity:0">
+      <div id="loader"></div>
+      <div class="loader-section section-left"></div>
+      <div class="loader-section section-right"></div>
+    </div>
+    <div id="app" data-server-rendered="true"><div style="height:100%;" data-v-60762676><section class="el-container main-container" data-v-60762676><aside class="el-aside menu" style="width:auto;" data-v-09011f04 data-v-60762676><ul role="menubar" class="menu-wrap el-menu" style="background-color:;" data-v-09011f04><li data-v-09011f04><div class="brand-wrap" style="background-image:url(/brand.jpg);" data-v-09011f04><div class="brand" data-v-09011f04><a href="/" class="avatar waves-effect waves-circle waves-light router-link-active" data-v-09011f04><img src="/liujiaozhu.png" data-v-09011f04></a> <hgroup class="introduce" data-v-09011f04><div class="nickname" data-v-09011f04>liujiaozhu</div> <a title="liujiaozhu666@163.com" class="mail" data-v-09011f04>liujiaozhu666@163.com</a></hgroup></div></div></li> <li role="menuitem" tabindex="-1" class="el-menu-item" style="padding-left:20px;color:;background-color:;" data-v-09011f04><i class="iconfont icon-home" data-v-09011f04></i> <span class="item-title" data-v-09011f04>主页</span></li> <li role="menuitem" tabindex="-1" class="el-menu-item" style="padding-left:20px;color:;background-color:;" data-v-09011f04><i class="iconfont icon-biaoqian" data-v-09011f04></i> <span class="item-title" data-v-09011f04>标签分类</span></li> <li role="menuitem" tabindex="-1" class="el-menu-item" style="padding-left:20px;color:;background-color:;" data-v-09011f04><i class="iconfont icon-wenzhang" data-v-09011f04></i> <span class="item-title" data-v-09011f04>时间归档</span></li> <li role="menuitem" tabindex="-1" class="el-menu-item" style="padding-left:20px;color:;background-color:;" data-v-09011f04><i class="iconfont icon-github" data-v-09011f04></i> <span class="item-title" data-v-09011f04>Github</span></li> <li role="menuitem" tabindex="-1" class="el-menu-item" style="padding-left:20px;color:;background-color:;" data-v-09011f04><i class="iconfont icon-aboutme" data-v-09011f04></i> <span class="item-title" data-v-09011f04>自我介绍</span></li></ul></aside> <section class="el-container container-warp" data-v-60762676><header id="topHeader" class="el-header top-header" style="height:60px;padding-left:260px;" data-v-7429231c data-v-60762676><div class="header-warp el-row is-align-middle el-row--flex" data-v-7429231c><div class="el-col el-col-12 el-col-xs-7" data-v-7429231c><div class="el-row is-align-middle el-row--flex" data-v-7429231c><div class="el-col el-col-2" data-v-7429231c><button type="button" class="el-button el-button--primary is-circle" data-v-7429231c><!----><!----><span><i class="iconfont icon-caidan" data-v-7429231c></i></span></button></div></div></div> <div class="el-col el-col-20 el-col-xs-24" data-v-7429231c><div class="grid-content bg-purple-light" data-v-7429231c><div class="el-row is-justify-end is-align-middle el-row--flex" data-v-7429231c><div class="el-col el-col-13 el-col-xs-24 el-col-sm-21 el-col-md-17 el-col-lg-13" data-v-7429231c><div aria-haspopup="listbox" role="combobox" aria-owns="el-autocomplete-8720" class="el-autocomplete search-input" data-v-7429231c><div class="el-input el-input--small el-input--suffix"><!----><input type="text" autocomplete="off" valueKey="value" popperClass="search-popper" placeholder="搜搜看" fetchSuggestions="function () { [native code] }" debounce="300" placement="bottom-start" popperAppendToBody="true" value="" class="el-input__inner"><!----><span class="el-input__suffix"><span class="el-input__suffix-inner"><i class="el-input__icon el-icon-search search-ico" data-v-7429231c></i><!----></span><!----></span><!----></div><div role="region" class="el-autocomplete-suggestion el-popper search-popper" style="width:;display:none;"><div class="el-scrollbar"><div class="el-autocomplete-suggestion__wrap el-scrollbar__wrap el-scrollbar__wrap--hidden-default"><ul class="el-scrollbar__view el-autocomplete-suggestion__list"></ul></div><div class="el-scrollbar__bar is-horizontal"><div class="el-scrollbar__thumb" style="width:0;transform:translateX(0%);ms-transform:translateX(0%);webkit-transform:translateX(0%);"></div></div><div class="el-scrollbar__bar is-vertical"><div class="el-scrollbar__thumb" style="height:0;transform:translateY(0%);ms-transform:translateY(0%);webkit-transform:translateY(0%);"></div></div></div></div></div></div></div></div></div></div></header> <main class="el-main my-main" style="margin-left:240px;" data-v-4fec0d22 data-v-60762676><div class="content-header index-header" data-v-0d2aefce data-v-4fec0d22><div class="container fade-scale in" data-v-0d2aefce><h1 id="conentHeader" class="title" data-v-0d2aefce>【读书笔记】byte的取值范围为什么是-128~127？</h1> <h5 class="subtitle" data-v-0d2aefce></h5></div></div> <div data-v-62816cfb data-v-4fec0d22 data-v-4fec0d22><div class="post-content el-row is-justify-center el-row--flex" data-v-62816cfb><div id="post-card" class="post-card post-sign el-col el-col-16 el-col-xs-24 el-col-sm-23 el-col-md-23 el-col-lg-16" data-v-62816cfb><div class="content__default" data-v-62816cfb><p>1、 计算机只能识别二进制</p> <p>2、计算机中最小的数据单位是 bit(位) 最基本的数据单位是 byte (字节)</p> <pre><code>  1byte = 8 bit
+
+  在存储器中最小的存储单位是存储元
+
+  存储元 它的作用是用来存放一位二进制代码0或1
+</code></pre> <p>3、byte 占用 8位  0000 0000</p> <pre><code> 这8位 分为符号位（最高位 也就是第一位）和数值位 (后7位)
+
+ java中基本数据都是有符号位的 char是无符号位 所以范围是0~65535
+
+ java中 byte b = 1 和 byte b = -1 都是可以的 
+
+ C语言中将基本数据类型分为 有符号位(signed) 和 无符号位(unsigned)
+
+ C语言中 char b = -1 其实是 signed char b = -1
+
+ C语言 要定义0 和正数 unsigned char b = 1 
+
+ 最高位 0 表示 正数 1表示 负数
+
+ 如果是 0111 1111 就为 127 那么 1111 1111 就是 -127
+
+ 如果8位都是0000 0000 就是 0
+
+ 那么推理出来 1000 0000 就是 -0
+
+ 计算机底层定义了 +0 就是 0000 0000
+
+ 那么出来个 -0 怎么表示 ？？？-0 和 0 不都是0 ？？？
+
+ 0000 0000 和 1000 0000都表示0的话，那么就太浪费资源了
+
+ 那么为了不浪费资源 0000 0000 就是0 
+
+ 1000 0000 是 -0 就代表 -128
+
+ 可是为什么？凭什么？- 0 就要代表 -128？？？
+</code></pre> <p>4、计算机基础知识科普：源码、反码、补码</p> <pre><code> 计算机存放有符号位的整数都是都是存放它的补码
+
+ 正数的源码、反码、补码都是一样的
+
+ 比如: 10这个数字 在计算机中怎么表示存储
+
+ 10 是正数符号位是0
+
+ 10的二进制就是 0000 1010  
+
+ 源码: 0000 1010
+
+ 反码: 0000 1010
+
+ 补码: 0000 1010
+
+ 那么负数怎么表示？
+
+ -10 的二进制
+
+源码: 1000 1010
+
+反码: 1111 0101   (符号位不变 其余位 取反)
+
+补码: 1111 0110   ( 反码 + 1 就是 补码 )
+</code></pre> <p>计算机中只存放 补码</p> <p>那么为什么计算机中要存放补码？</p> <p>因为计算机只会做加法运算，减去一个数字 相当于加上数字的补码</p> <p>比如: 在我们生活中 凌晨 02:00 和下午 14:00 其实都是两点</p> <p>时针和分针指向都一样 （你品 你细品 是不是一回事...）</p> <p>10 - 8 = 2</p> <p>10 + 4 = 14</p> <p>10点钟的时候时针往后划拉 8圈 就是 2点，往前划拉 4圈就是 14点</p> <p>但都是 两点 所以 -8 和 +4 效果是一样的</p> <p>-8运算可以使用 +4 运算代替 我们把8 和4称为 互为补码</p> <p>也就是 减去一个数字 相当于加上这个数字的补码</p> <p>5、那么还是原问题 -128 为什么 使用-0 也就是 1000 0000表示</p> <p>byte 是占8位 无符号位的话 1000 0000 是128</p> <p>有符号位的话 byte是无法表示 -128和128</p> <p>那么如果假设 byte是占 9位 -128 就是 1 1000 0000 表示</p> <p>-128 源码：1 1000 0000</p> <p>-128 反码：1 0111 1111</p> <p>-128 补码：1 1000 0000</p> <p>它的 源码和补码是一样的 -128补码的 后八位 刚好是 1000 0000</p> <p>6、其实 1000 0000 代表-128 就是人为设计的 为了不浪费资源</p> <p>（听闻是印度阿三设计的）这种设计也很巧妙</p> <p>比如: 127 + 1 = -128</p> <pre><code>     0111 1111
+
+   + 0000 0001 
+
+     1000 0000 = -128
+
+     -128 + 1 = -127
+
+     -128 补码是 1111 1110
+
+     1111 1110
+
+   + 0000 0001
+
+     1111 1111 = -127
+</code></pre> <p>这样从-128~127的反码首尾相连,形成了一个闭环，就像时钟一样</p></div> <span id="footerPost" data-v-62816cfb></span></div> <div id="post-toc" class="post-toc el-col el-col-6" data-v-62816cfb><h4 class="catalog-title" data-v-62816cfb>TOC</h4> <div class="catalog-body" data-v-62816cfb><ul id="catalog-list" class="catalog-list" data-v-62816cfb></ul></div></div></div> <div class="post-nav el-row is-justify-space-around el-row--flex" data-v-62816cfb><div class="post-prev el-col el-col-7" data-v-62816cfb><div data-v-62816cfb><a href="/posts/CSS.html" data-v-62816cfb><i class="el-icon-arrow-left" data-v-62816cfb></i> Prev
+        </a> <p class="nav-title" data-v-62816cfb>【读书笔记】CSS</p></div></div> <div class="post-next el-col el-col-7 el-col-lg-pull-5" data-v-62816cfb><div data-v-62816cfb><a href="/posts/weui.html" data-v-62816cfb>
+          Next
+          <i class="el-icon-arrow-right" data-v-62816cfb></i></a> <p class="nav-title" data-v-62816cfb>【项目实战】weui+vue+axios</p></div></div></div> <div class="el-row is-justify-center el-row--flex" data-v-62816cfb><div class="el-col el-col-23" data-v-62816cfb></div></div> <span data-v-2ab0b9b3 data-v-62816cfb><button type="button" class="el-button toc-btn el-button--primary is-circle" data-v-2ab0b9b3><!----><!----><span><i class="iconfont icon-service-directory" data-v-2ab0b9b3></i></span></button> <button type="button" class="el-button gotop-btn el-button--primary is-circle" data-v-2ab0b9b3><!----><!----><span><i class="el-icon-arrow-up" data-v-2ab0b9b3></i></span></button></span></div></main></section> <button type="button" class="el-button gotop-btn el-button--primary is-circle" style="display:none;" data-v-0ca947a2 data-v-60762676><!----><!----><span><i class="el-icon-arrow-up" data-v-0ca947a2></i></span></button></section> <footer class="el-footer container-footer" style="height:60px;" data-v-d5fdfe92 data-v-60762676><div class="footer-warp el-row is-justify-center is-align-center el-row--flex footerMargin" data-v-d5fdfe92><div class="footer-top el-col el-col-24" data-v-d5fdfe92><p class="ellipsis" data-v-d5fdfe92><span data-v-d5fdfe92>
+          博客内容遵循
+          <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" data-v-d5fdfe92>知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span></p></div> <div class="footer-bottom el-col el-col-24" data-v-d5fdfe92><p class="ellipsis" data-v-d5fdfe92><span data-v-d5fdfe92><span data-v-d5fdfe92>
+            LiujiaozhuBlog © 2017-07 ~ 2019-12
+          </span></span> <span data-v-d5fdfe92>
+          Power by
+          <a href="https://vuepress.vuejs.org/zh/" target="_blank" data-v-d5fdfe92>VuePress</a> Theme
+          <a href="https://github.com/zhhlwd/vuepress-theme-indigo-material" target="_blank" data-v-d5fdfe92>indigo material</a></span></p></div></div></footer> <div class="overlay" data-v-60762676></div></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.47c78c4b.js" defer></script><script src="/assets/js/1.301c5c70.js" defer></script><script src="/assets/js/14.8638e8d8.js" defer></script><script src="/assets/js/5.68c0f73b.js" defer></script><script src="/assets/js/7.b1d1a3c7.js" defer></script><script src="/assets/js/9.c16d6f98.js" defer></script><script src="/assets/js/6.cf863b70.js" defer></script><script src="/assets/js/28.07c1119f.js" defer></script><script src="/assets/js/13.61227677.js" defer></script><script src="/assets/js/15.1a7d8497.js" defer></script>
+  </body>
+</html>
